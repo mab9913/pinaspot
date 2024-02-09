@@ -1,0 +1,22 @@
+.table-slide-enter {
+    transform: translateY(100%);
+    opacity: 0;
+    transition: transform 300ms, opacity 300ms;
+  }
+  
+  .table-slide-enter-active {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  
+  .table-slide-exit {
+    transform: translateY(0);
+    opacity: 1;
+    transition: transform 300ms, opacity 300ms;
+  }
+  
+  .table-slide-exit-active {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  

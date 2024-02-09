@@ -1,0 +1,13 @@
+.app-container {
+  display: flex;
+}
+
+.dashboard-container {
+  /* Estilo para el menú lateral */
+  width: 250px;
+}
+
+.main-content {
+  flex-grow: 1;
+  padding: 20px;
+}

@@ -1,0 +1,18 @@
+.map-container,
+.table-container {
+  background-color: var(--light-text-color); /* Asegúrate de que el color de fondo sea adecuado para el contenido */
+  border-radius: var(--border-radius); /* Verifica que el radio del borde esté definido en tus variables */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave para profundidad */
+  margin-bottom: 20px; /* Espacio uniforme */
+}
+
+.map-container {
+  height: 80%; /* Ajustable según necesidad */
+  width: 100%; /* Ocupa todo el ancho disponible */
+}
+
+.table-container {
+  overflow-x: auto; /* Permite desplazamiento horizontal si es necesario */
+}
+
+/* Puedes considerar agregar transiciones suaves para hover u otros efectos interactivos */
