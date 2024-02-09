@@ -11,7 +11,7 @@ app.use(
     helmet.contentSecurityPolicy({
       directives: {
         defaultSrc: ["'self'"],
-        connectSrc: ["'self'", "http://127.0.0.1:9000", "https://api.example.com"], // Asegúrate de agregar aquí todas las URLs externas que tu aplicación necesita contactar
+        connectSrc: ["'self'", "http://165.227.226.111:9000", "https://pinaspot.com"], // Asegúrate de agregar aquí todas las URLs externas que tu aplicación necesita contactar
         imgSrc: ["'self'", "data:", "*.tile.openstreetmap.org"],
         // Agrega aquí otras directivas según sea necesario
       },
@@ -21,7 +21,7 @@ app.use(
 
 // app.use(helmet());
 
-const allowedOrigins = ['http://127.0.0.1:3000', 'http://localhost:3000'];
+const allowedOrigins = ['http://165.227.226.111:3000', 'http://localhost:3000'];
 app.use(cors({
     origin:'*',
     credentials:true,
