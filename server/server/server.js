@@ -13,15 +13,13 @@ app.use(
         directives: {
             defaultSrc: ["'self'"],
             connectSrc: [
-                "'self'", 
-                "https://pinaspot.com", 
-                "https://www.pinaspot.com", // Añade www.
+                "'self'",
+                "https://pinaspot.com",
+                "https://www.pinaspot.com", // Permite el dominio con y sin www.
                 "wss://pinaspot.com",
-                "wss://www.pinaspot.com" ,
-                "https://pinaspot.com/login",
-                // "https://www.pinaspot.com:9000",
-                // "https://www.pinaspot.com:9000/login",
-
+                "wss://www.pinaspot.com",
+                "https://www.pinaspot.com:9000", // Permite conexiones al puerto 9000
+                "https://www.pinaspot.com/login", // Esta línea es redundante si ya permites todo el dominio con la línea de "https://www.pinaspot.com"
             ],
             imgSrc: ["'self'", "data:", "*.tile.openstreetmap.org"],
         },
