@@ -5,19 +5,15 @@
   <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#000000" />
-  <meta
-    name="description"
-    content="Web site created using create-react-app"
-  />
+  <meta name="description" content="Web site created using create-react-app" />
   <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
   <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-  
   <meta http-equiv="Content-Security-Policy" content="
-    default-src 'self';
-    script-src 'self' 'unsafe-inline' 'unsafe-eval';
-    style-src 'self' 'unsafe-inline';
+    default-src 'self' data: gap: https://www.pinaspot.com 'unsafe-inline' 'unsafe-eval';
+    style-src 'self' 'unsafe-inline''unsafe-eval';
     img-src 'self' data:;
-    connect-src 'self' https://pinaspot.com https://www.pinaspot.com wss://pinaspot.com wss://www.pinaspot.com https://www.pinaspot.com:9000;
+    media-src *;
+    script-src ''self' https://pinaspot.com https://www.pinaspot.com wss://pinaspot.com wss://www.pinaspot.com https://www.pinaspot.com:9000 'unsafe-inline' 'unsafe-eval';
   ">
 
   <title>Villarobledo</title>
@@ -27,3 +23,4 @@
   <div id="root"></div>
 </body>
 </html>
+
