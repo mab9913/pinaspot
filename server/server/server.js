@@ -17,7 +17,9 @@ app.use(
                 "https://pinaspot.com", 
                 "https://www.pinaspot.com", // Añade www.
                 "wss://pinaspot.com",
-                "wss://www.pinaspot.com" 
+                "wss://www.pinaspot.com" ,
+                "https://pinaspot.com/login",
+                 
             ],
             imgSrc: ["'self'", "data:", "*.tile.openstreetmap.org"],
         },
