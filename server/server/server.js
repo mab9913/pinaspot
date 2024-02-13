@@ -12,20 +12,19 @@ app.use(
     helmet.contentSecurityPolicy({
         directives: {
             defaultSrc: ["'self'"],
-            connectSrc: ["'self'", "http://165.227.226.111:9000", "https://pinaspot.com", "ws://165.227.226.111:9000", "wss://pinaspot.com"], // Asegúrate de agregar aquí todas las URLs externas que tu aplicación necesita contactar
+            connectSrc: ["'self'", "http://165.227.226.111:9000", "https://165.227.226.111:9000","https://pinaspot.com", "ws://165.227.226.111:9000", "wss://pinaspot.com"],
             imgSrc: ["'self'", "data:", "*.tile.openstreetmap.org"],
-            // Agrega aquí otras directivas según sea necesario
+
         },
     })
 );
 
-// Configuración de CORS
-// Aquí, establecemos explícitamente los orígenes permitidos en lugar de usar '*'
+
 const allowedOrigins = ['https://pinaspot.com', 'http://165.227.226.111:3000', 'http://localhost:3000'];
 
 app.use(cors({
     origin: function (origin, callback) {
-        // Permitir solicitudes sin 'origin' (como aplicaciones móviles o curl)
+
         if (!origin) return callback(null, true);
         if (allowedOrigins.indexOf(origin) === -1) {
             var msg = 'La política de CORS para este sitio no permite el acceso desde el origen especificado.';
