@@ -19,7 +19,8 @@ app.use(
                 "wss://pinaspot.com",
                 "wss://www.pinaspot.com" ,
                 "https://pinaspot.com/login",
-                 
+                "https://www.pinaspot.com:9000",
+
             ],
             imgSrc: ["'self'", "data:", "*.tile.openstreetmap.org"],
         },
