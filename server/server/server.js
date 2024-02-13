@@ -12,11 +12,14 @@ app.use(
     helmet.contentSecurityPolicy({
         directives: {
             defaultSrc: ["'self'"],
-            connectSrc: ["'self'", "https://pinaspot.com", "wss://pinaspot.com"],
-
-            // connectSrc: ["'self'", "http://165.227.226.111:9000", "https://165.227.226.111:9000","https://pinaspot.com", "ws://165.227.226.111:9000", "wss://pinaspot.com"],
+            connectSrc: [
+                "'self'", 
+                "https://pinaspot.com", 
+                "https://www.pinaspot.com", // Añade www.
+                "wss://pinaspot.com",
+                "wss://www.pinaspot.com" 
+            ],
             imgSrc: ["'self'", "data:", "*.tile.openstreetmap.org"],
-
         },
     })
 );
