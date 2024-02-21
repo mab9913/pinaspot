@@ -25,6 +25,7 @@ app.use(
                 "https://a.tile.openstreetmap.org",
                 "https://b.tile.openstreetmap.org",
                 "https://c.tile.openstreetmap.org",
+                "https:",
                 // Añade todos los demás dominios específicos aquí
             ],
         },
