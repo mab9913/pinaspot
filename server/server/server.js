@@ -19,15 +19,8 @@ app.use(
                 "wss://pinaspot.com",
                 "wss://www.pinaspot.com",
             ],
-            imgSrc: [
-                "'self'",
-                "data:",
-                "https://a.tile.openstreetmap.org",
-                "https://b.tile.openstreetmap.org",
-                "https://c.tile.openstreetmap.org",
-                "https:",
-                // Añade todos los demás dominios específicos aquí
-            ],
+            imgSrc: ["'self'", "data:", "*.tile.openstreetmap.org", "*.openstreetmap.org"],
+
         },
     })
 );
