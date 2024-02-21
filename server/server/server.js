@@ -20,7 +20,7 @@ app.use(
                 "wss://www.pinaspot.com",
             ],
             
-            imgSrc: ["'self'", "data:", "*.tile.openstreetmap.org"],
+            imgSrc: ["'self'", "data:","*", "*.tile.openstreetmap.org"],
         },
     })
 );
