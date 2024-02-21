@@ -19,11 +19,18 @@ app.use(
                 "wss://pinaspot.com",
                 "wss://www.pinaspot.com",
             ],
-            
-            imgSrc: ["'self'", "data:","*", "*.tile.openstreetmap.org"],
+            imgSrc: [
+                "'self'",
+                "data:",
+                "https://a.tile.openstreetmap.org",
+                "https://b.tile.openstreetmap.org",
+                "https://c.tile.openstreetmap.org",
+                // Añade todos los demás dominios específicos aquí
+            ],
         },
     })
 );
+
 
 
 const allowedOrigins = ['https://pinaspot.com', 'http://165.227.226.111:3000', 'http://localhost:3000'];
