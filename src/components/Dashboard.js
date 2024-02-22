@@ -135,7 +135,7 @@ const toggleGuide = () => {
         <button onClick={handleUpdateData}>Actualizar Datos</button>
         {/* <button onClick={toggleShowAll}>{showAll ? 'Mostrar solo pendientes' : 'Mostrar todos'}</button> */}
       </div>
-      {showGuide && <CoordinatesGuide />}
+      <button className='guide-button' onClick={toggleGuide}>Guía de Coordenadas</button>
       <table>
         <thead>
           <tr>
