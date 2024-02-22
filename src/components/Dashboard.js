@@ -5,7 +5,7 @@ import MapView from './MapView';
 import SessionDetails from './SessionDetails';
 import { useAuth } from './AuthContext';
 import '../styles/Dashboard.css';
-import CoordinatesGuide from './CoordinatesGuide';
+// import CoordinatesGuide from './CoordinatesGuide';
 
 const Dashboard = ({ username, loginTime }) => {
   const [luminariesData, setLuminariesData] = useState([]);
@@ -108,11 +108,11 @@ const handleUpdateData = async () => {
 
 const displayedData = showAll ? luminariesData : luminariesData.filter(luminary => !luminary.latitud || !luminary.longitud);
 
-const [showGuide, setShowGuide] = useState(false);
+// const [showGuide, setShowGuide] = useState(false);
 
-const toggleGuide = () => {
-    setShowGuide(!showGuide);
-};
+// const toggleGuide = () => {
+//     setShowGuide(!showGuide);
+// };
 
 
   return (
@@ -135,7 +135,7 @@ const toggleGuide = () => {
         <button onClick={handleUpdateData}>Actualizar Datos</button>
         {/* <button onClick={toggleShowAll}>{showAll ? 'Mostrar solo pendientes' : 'Mostrar todos'}</button> */}
       </div>
-      <button className='guide-button' onClick={toggleGuide}>Guía de Coordenadas</button>
+      {/* <button className='guide-button' onClick={toggleGuide}>Guía de Coordenadas</button> */}
       <table>
         <thead>
           <tr>
