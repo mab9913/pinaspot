@@ -127,7 +127,7 @@ const handleUpdateData = async () => {
         <button onClick={handleUpdateData}>Actualizar Datos</button>
         {/* <button onClick={toggleShowAll}>{showAll ? 'Mostrar solo pendientes' : 'Mostrar todos'}</button> */}
       </div>
-
+      {showGuide && <CoordinatesGuide />}
       <table>
         <thead>
           <tr>
