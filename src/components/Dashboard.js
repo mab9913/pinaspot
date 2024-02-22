@@ -5,6 +5,7 @@ import MapView from './MapView';
 import SessionDetails from './SessionDetails';
 import { useAuth } from './AuthContext';
 import '../styles/Dashboard.css';
+import CoordinatesGuide from './CoordinatesGuide';
 
 const Dashboard = ({ username, loginTime }) => {
   const [luminariesData, setLuminariesData] = useState([]);
@@ -105,7 +106,14 @@ const handleUpdateData = async () => {
     navigate('/login');
   };
 
-  const displayedData = showAll ? luminariesData : luminariesData.filter(luminary => !luminary.latitud || !luminary.longitud);
+const displayedData = showAll ? luminariesData : luminariesData.filter(luminary => !luminary.latitud || !luminary.longitud);
+
+const [showGuide, setShowGuide] = useState(false);
+
+const toggleGuide = () => {
+    setShowGuide(!showGuide);
+};
+
 
   return (
     <div className="dashboard">
