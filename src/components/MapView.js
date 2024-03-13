@@ -46,11 +46,10 @@ const MapView = ({ isMapOpen, onLocationSelect, luminariesData }) => {
       />
       {luminariesData.map((luminary, index) => (
         luminary.latitud !== null && luminary.longitud !== null && (
-          <Marker 
-            key={index} 
-            position={[luminary.latitud, luminary.longitud]} 
-            icon={createCustomMarkerIcon(luminary.id.toString())} // Usa la función para el ID como etiqueta permanente
-          >
+<Marker position={[39.2666978950, -2.602043151]}>
+  <Popup>A simple Popup</Popup>
+</Marker>
+
             <Popup>
               {/* Personaliza el contenido del pop-up para mostrar la latitud y longitud */}
               Latitud: {luminary.latitud}<br />
