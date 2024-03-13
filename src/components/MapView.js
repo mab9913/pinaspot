@@ -3,25 +3,16 @@ import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 
-// Configuración del icono del marcador
-const markerIcon = new L.Icon({
-  iconUrl: icon,
-  iconRetinaUrl: iconRetina,
-  shadowUrl: iconShadow,
-  iconSize: [25, 41],
-  iconAnchor: [12, 41],
-  popupAnchor: [1, -34], // Asegúrate de que la posición del pop-up sea correcta
-  shadowSize: [41, 41]
-});
+// No es necesario definir markerIcon si se usará únicamente createCustomMarkerIcon para todos los marcadores
 
-// Función para crear un marcador personalizado con una etiqueta permanente
+// Función para crear un marcador personalizado con una etiqueta permanente que muestra el ID
 const createCustomMarkerIcon = (labelText) => {
   return L.divIcon({
     html: `<div style="background-color: white; padding: 5px; border-radius: 5px; box-shadow: 1px 1px 5px rgba(0,0,0,0.5);">${labelText}</div>`,
     className: 'custom-div-icon',
-    iconSize: [30, 42],
-    iconAnchor: [15, 42],
-    popupAnchor: [0, -42],
+    iconSize: [30, 42], // Ajusta el tamaño según sea necesario
+    iconAnchor: [15, 42], // Asegura que el icono se ancle correctamente
+    popupAnchor: [0, -42], // Ajusta la posición del popup si es necesario
   });
 };
 
@@ -58,13 +49,12 @@ const MapView = ({ isMapOpen, onLocationSelect, luminariesData }) => {
           <Marker 
             key={index} 
             position={[luminary.latitud, luminary.longitud]} 
-            icon={createCustomMarkerIcon(luminary.id.toString())} // Utiliza la función para crear un icono personalizado con el ID
+            icon={createCustomMarkerIcon(luminary.id.toString())} // Usa la función para el ID como etiqueta permanente
           >
             <Popup>
-              {/* Aquí puedes personalizar el contenido del pop-up para mostrar toda la información de la fila */}
-              ID: {luminary.id}<br />
-              Ubicación: {luminary.ubicacion || 'No disponible'}<br />
-              {/* Añade más campos según sea necesario */}
+              {/* Personaliza el contenido del pop-up para mostrar la latitud y longitud */}
+              Latitud: {luminary.latitud}<br />
+              Longitud: {luminary.longitud}
             </Popup>
           </Marker>
         )
@@ -74,4 +64,5 @@ const MapView = ({ isMapOpen, onLocationSelect, luminariesData }) => {
 };
 
 export default MapView;
+
 
