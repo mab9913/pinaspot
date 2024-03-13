@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'; // Importa Popup
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-import icon from 'leaflet/dist/images/marker-icon.png';
-import iconRetina from 'leaflet/dist/images/marker-icon-2x.png';
-import iconShadow from 'leaflet/dist/images/marker-shadow.png';
 
 // Configuración del icono del marcador
 const markerIcon = new L.Icon({
@@ -17,6 +14,17 @@ const markerIcon = new L.Icon({
   shadowSize: [41, 41]
 });
 
+// Función para crear un marcador personalizado con una etiqueta permanente
+const createCustomMarkerIcon = (labelText) => {
+  return L.divIcon({
+    html: `<div style="background-color: white; padding: 5px; border-radius: 5px; box-shadow: 1px 1px 5px rgba(0,0,0,0.5);">${labelText}</div>`,
+    className: 'custom-div-icon',
+    iconSize: [30, 42],
+    iconAnchor: [15, 42],
+    popupAnchor: [0, -42],
+  });
+};
+
 const MapView = ({ isMapOpen, onLocationSelect, luminariesData }) => {
   const [map, setMap] = useState(null);
 
@@ -24,14 +32,14 @@ const MapView = ({ isMapOpen, onLocationSelect, luminariesData }) => {
     if (!map) return;
 
     const handleClick = (e) => {
-      if (!isMapOpen) return; // Ignora clics si la edición está cerrada
+      if (!isMapOpen) return;
 
       const { lat, lng } = e.latlng;
-      onLocationSelect(lat, lng); // Callback para manejar la selección de ubicación
+      onLocationSelect(lat, lng);
     };
 
-    map.on('click', handleClick); // Escucha clics en el mapa
-    return () => map.off('click', handleClick); // Limpia el evento al desmontar
+    map.on('click', handleClick);
+    return () => map.off('click', handleClick);
   }, [map, onLocationSelect, isMapOpen]);
 
   return (
@@ -39,7 +47,7 @@ const MapView = ({ isMapOpen, onLocationSelect, luminariesData }) => {
       center={[39.2666978950, -2.602043151]} 
       zoom={13} 
       style={{ height: '500px', width: '100%' }}
-      whenCreated={setMap} // Establece el objeto mapa en el estado
+      whenCreated={setMap}
     >
       <TileLayer
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -50,11 +58,13 @@ const MapView = ({ isMapOpen, onLocationSelect, luminariesData }) => {
           <Marker 
             key={index} 
             position={[luminary.latitud, luminary.longitud]} 
-            icon={markerIcon}
+            icon={createCustomMarkerIcon(luminary.id.toString())} // Utiliza la función para crear un icono personalizado con el ID
           >
             <Popup>
-              {/* Personaliza aquí con la información que quieras mostrar */}
-              {`Nombre: ${luminary.name || 'No disponible'}\nID: ${luminary.id || 'No disponible'}`}
+              {/* Aquí puedes personalizar el contenido del pop-up para mostrar toda la información de la fila */}
+              ID: {luminary.id}<br />
+              Ubicación: {luminary.ubicacion || 'No disponible'}<br />
+              {/* Añade más campos según sea necesario */}
             </Popup>
           </Marker>
         )
@@ -64,3 +74,4 @@ const MapView = ({ isMapOpen, onLocationSelect, luminariesData }) => {
 };
 
 export default MapView;
+
