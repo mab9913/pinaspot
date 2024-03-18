@@ -1,34 +1,115 @@
-/* Colores base actualizados */
+/* Colores base */
 :root {
-  --color-primario: linear-gradient(45deg, #e2984a, #f2a65a); /* Gradiente para acentos */
-  --color-secundario: #4a90e2; /* Azul para acentos secundarios */
-  --color-fondo: #f5f5f5;
-  --color-texto: #333;
+  --color-primario: #e2984a; /* Naranja para acentos */
+  --color-fondo: #f5f5f5; /* Gris claro para el fondo */
+  --color-texto: #333; /* Gris oscuro para el texto */
+  --color-secundario: #4a90e2; /* Nuevo color azul para acentos secundarios */
 }
 
-/* Transición suave para botones */
+body {
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+  font-family: 'Open Sans', sans-serif;
+}
+
+.dashboard {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.dashboard-header, .table-container, .map-container, #map {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* Sombras más suaves */
+  margin-bottom: 20px;
+}
+
+.dashboard-header h1 {
+  margin: 0;
+}
+
+.dashboard-header .logout-button {
+  padding: 10px 20px;
+  background-color: var(--color-primario);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease; /* Transición suavizada */
+}
+
+.table-container, .map-container {
+  padding: 20px;
+  border-radius: 10px; /* Bordes redondeados para un look más moderno */
+  background: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* Sombras más suaves */
+  margin-bottom: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+th, td {
+  border: 1px solid #eee;
+  padding: 15px;
+  text-align: left;
+}
+
+th {
+  background-color: var(--color-primario);
+  color: white;
+}
+
+tr:nth-child(even) {
+  background-color: #fafafa;
+}
+
+.checkbox-label {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.checkbox-label input[type="checkbox"] {
+  margin-right: 5px;
+}
+
+/* Botones */
 button {
-  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  background-color: var(--color-primario);
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition: all 0.3s ease; /* Transición suavizada */
+  cursor: pointer;
+  border-radius: 5px;
 }
 
 button:hover {
-  background-color: var(--color-secundario); /* Cambio de color para el hover */
-  color: white;
-  border: 1px solid transparent; /* Elimina el borde al hacer hover para un look más limpio */
+  background-color: white;
+  color: var(--color-primario);
+  border: 1px solid var(--color-primario);
 }
 
-/* Sombra más suave y profunda */
-.dashboard-header, .table-container, .map-container, #map {
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-/* Añadir un poco más de espacio entre elementos de la tabla para mejorar la legibilidad */
-th, td {
-  padding: 20px 15px;
-}
-
-/* Estilo más moderno para el encabezado del dashboard */
-.dashboard-header {
-  background-color: var(--color-primario); /* Aplica el gradiente aquí */
-  color: white; /* Cambia el color del texto para contraste */
+#map {
+  height: 300px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* Sombras más suaves */
 }
