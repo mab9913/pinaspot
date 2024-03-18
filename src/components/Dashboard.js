@@ -130,9 +130,9 @@ const displayedData = showAll ? luminariesData : luminariesData.filter(luminary 
           selectedRows={selectedRows}
           style={{width: '100%', height: '300px', border: '1px solid #ccc' }}
         />
-        <button onClick={handleOpenMapClick}>Abrir Edición</button>
-        <button onClick={handleCloseMap}>Cerrar Edición</button>
-        <button onClick={handleUpdateData}>Actualizar Datos</button>
+        <button onClick={handleOpenMapClick}>Edit mode</button>
+        <button onClick={handleCloseMap}>End edit mode</button>
+        <button onClick={handleUpdateData}>Send</button>
         {/* <button onClick={toggleShowAll}>{showAll ? 'Mostrar solo pendientes' : 'Mostrar todos'}</button> */}
       </div>
       {/* <button className='guide-button' onClick={toggleGuide}>Guía de Coordenadas</button> */}
