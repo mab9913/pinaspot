@@ -3,14 +3,21 @@ import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 
-// Función para crear un marcador personalizado con una etiqueta permanente que muestra el ID
+// Función para crear un icono de marcador personalizado con un símbolo y una etiqueta
 const createCustomMarkerIcon = (labelText) => {
   return L.divIcon({
-    html: `<div style="background-color: white; padding: 5px; border-radius: 5px; box-shadow: 1px 1px 5px rgba(0,0,0,0.5);">${labelText}</div>`,
+    html: `
+      <div style="position: relative; text-align: center;">
+        <div style="color: black; position: absolute; width: 100%; top: -25px; left: 0;">${labelText}</div>
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="fill: #3388ff; width: 24px; height: 24px;">
+          <circle cx="50" cy="50" r="40"/>
+        </svg>
+      </div>
+    `,
     className: 'custom-div-icon',
-    iconSize: L.point(30, 42), // Ajusta el tamaño según sea necesario
-    iconAnchor: [15, 42], // Asegura que el icono se ancle correctamente
-    popupAnchor: [0, -42], // Ajusta la posición del popup si es necesario
+    iconSize: L.point(30, 42),
+    iconAnchor: [15, 42],
+    popupAnchor: [0, -42],
   });
 };
 
@@ -47,10 +54,9 @@ const MapView = ({ isMapOpen, onLocationSelect, luminariesData }) => {
           <Marker 
             key={index} 
             position={[luminary.latitud, luminary.longitud]} 
-            icon={createCustomMarkerIcon(luminary.id.toString())} // Usa la función para el ID como etiqueta permanente
+            icon={createCustomMarkerIcon(luminary.id.toString())} // Usa la función modificada para el marcador
           >
             <Popup>
-              {/* Personaliza el contenido del pop-up para mostrar la latitud y longitud */}
               Latitud: {luminary.latitud}<br />
               Longitud: {luminary.longitud}
             </Popup>
