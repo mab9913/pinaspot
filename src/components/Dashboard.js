@@ -144,7 +144,8 @@ const displayedData = showAll ? luminariesData : luminariesData.filter(luminary 
             <th>Point objetc</th>
             <th>Modelo</th>
             <th>layer</th>
-            
+            <th>project</th>
+            <th>level</th>
             <th>type</th>
             <th>street</th>
           
