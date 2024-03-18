@@ -141,6 +141,7 @@ const displayedData = showAll ? luminariesData : luminariesData.filter(luminary 
           <tr>
             <th>Select</th>
             <th>id</th>
+            <th>inv_ref</th>
             <th>Point objetc</th>
             <th>Modelo</th>
             <th>layer</th>
