@@ -1,9 +1,9 @@
-/* Colores base */
 :root {
   --color-primario: #e2984a; /* Naranja para acentos */
   --color-fondo: #f5f5f5; /* Gris claro para el fondo */
-  --color-texto: #333; /* Gris oscuro para el texto */
-  --color-secundario: #4a90e2; /* Nuevo color azul para acentos secundarios */
+  --color-texto: #333333; /* Gris oscuro para el texto */
+  --color-secundario: #4a90e2; /* Azul para acentos secundarios */
+  --sombra: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
 }
 
 body {
@@ -14,14 +14,6 @@ body {
 
 .dashboard {
   padding: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.dashboard-header, .table-container, .map-container, #map {
-  width: 100%;
-  box-sizing: border-box;
 }
 
 .dashboard-header {
@@ -30,29 +22,30 @@ body {
   align-items: center;
   padding: 20px;
   background-color: white;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* Sombras más suaves */
+  box-shadow: var(--sombra);
   margin-bottom: 20px;
 }
 
-.dashboard-header h1 {
-  margin: 0;
-}
-
-.dashboard-header .logout-button {
-  padding: 10px 20px;
+button {
   background-color: var(--color-primario);
   color: white;
   border: none;
+  padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
-  transition: all 0.3s ease; /* Transición suavizada */
+  transition: all 0.3s ease;
 }
 
-.table-container, .map-container {
-  padding: 20px;
-  border-radius: 10px; /* Bordes redondeados para un look más moderno */
+button:hover {
+  background-color: var(--color-secundario);
+  color: white;
+}
+
+.map-container, .table-container {
   background: white;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* Sombras más suaves */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: var(--sombra);
   margin-bottom: 20px;
 }
 
@@ -63,8 +56,8 @@ table {
 }
 
 th, td {
-  border: 1px solid #eee;
-  padding: 15px;
+  padding: 12px;
+  border: 1px solid #dddddd;
   text-align: left;
 }
 
@@ -74,42 +67,23 @@ th {
 }
 
 tr:nth-child(even) {
-  background-color: #fafafa;
+  background-color: #f2f2f2;
 }
 
-.checkbox-label {
-  display: inline-block;
-  margin-right: 10px;
+.selected-row {
+  background-color: #eaf5ff; /* Color suave para filas seleccionadas */
 }
 
-.checkbox-label input[type="checkbox"] {
-  margin-right: 5px;
-}
-
-/* Botones */
-button {
-  background-color: var(--color-primario);
-  border: none;
-  color: white;
-  padding: 10px 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  transition: all 0.3s ease; /* Transición suavizada */
+/* Mejoras adicionales para interactividad y estética */
+input[type="checkbox"]:hover {
   cursor: pointer;
-  border-radius: 5px;
 }
 
-button:hover {
-  background-color: white;
-  color: var(--color-primario);
-  border: 1px solid var(--color-primario);
+.map-container {
+  position: relative;
 }
 
-#map {
-  height: 300px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* Sombras más suaves */
+.edit-mode-button, .send-button, .close-map-button {
+  margin-top: 10px;
 }
+
