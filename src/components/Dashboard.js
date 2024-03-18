@@ -139,16 +139,15 @@ const displayedData = showAll ? luminariesData : luminariesData.filter(luminary 
       <table>
         <thead>
           <tr>
-            <th>Seleccionar</th>
-            <th>ID</th>
-            <th>ID PTO DE LUZ</th>
-            <th>LUMINARIA ACTUAL</th>
-            <th>Modelo de Luminaria</th>
-            <th>POT FUTURA</th>
-            <th>C.M. Nuevo</th>
-            <th>Soporte</th>
-            <th>Calle</th>
-            <th>Altura</th>
+            <th>Select</th>
+            <th>id</th>
+            <th>Point objetc</th>
+            <th>Modelo</th>
+            <th>layer</th>
+            
+            <th>type</th>
+            <th>street</th>
+          
             <th>lat</th>
             <th>long</th>
           </tr>
