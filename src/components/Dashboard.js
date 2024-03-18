@@ -118,7 +118,8 @@ const displayedData = showAll ? luminariesData : luminariesData.filter(luminary 
   return (
     <div className="dashboard">
       <div className='dashboard-header'>
-        <h1>Nuevos Puntos Villarobledo</h1>
+        <h1>Pin a Spot</h1>
+        <h1>Make data geospatial </h1>
         <button className='logout-button' onClick={handleLogout}>Cerrar sesión</button>
       </div>
 
