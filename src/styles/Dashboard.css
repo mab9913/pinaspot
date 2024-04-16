@@ -1,8 +1,9 @@
-/* Colores base */
 :root {
   --color-primario: #e2984a; /* Naranja para acentos */
   --color-fondo: #f5f5f5; /* Gris claro para el fondo */
-  --color-texto: #333; /* Gris oscuro para el texto */
+  --color-texto: #333333; /* Gris oscuro para el texto */
+  --color-secundario: #4a90e2; /* Azul para acentos secundarios */
+  --sombra: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
 }
 
 body {
@@ -13,14 +14,6 @@ body {
 
 .dashboard {
   padding: 20px;
-  display: flex;
-  flex-direction: column; /* Cambiado a columna para alinear verticalmente */
-  align-items: center; /* Alineación central de los elementos */
-}
-
-.dashboard-header, .table-container, .map-container, #map {
-  width: 100%; /* Ancho consistente para todos los elementos */
-  box-sizing: border-box;
 }
 
 .dashboard-header {
@@ -29,29 +22,31 @@ body {
   align-items: center;
   padding: 20px;
   background-color: white;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px; /* Espacio entre el encabezado y el siguiente elemento */
+  box-shadow: var(--sombra);
+  margin-bottom: 20px;
 }
 
-.dashboard-header h1 {
-  margin: 0;
-}
-
-.dashboard-header .logout-button {
-  padding: 10px 20px;
+button {
   background-color: var(--color-primario);
   color: white;
   border: none;
+  padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-.table-container, .map-container {
+button:hover {
+  background-color: var(--color-secundario);
+  color: white;
+}
+
+.map-container, .table-container {
+  background: white;
   padding: 20px;
   border-radius: 10px;
-  background: white;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px; /* Espacio entre los contenedores */
+  box-shadow: var(--sombra);
+  margin-bottom: 20px;
 }
 
 table {
@@ -61,8 +56,8 @@ table {
 }
 
 th, td {
-  border: 1px solid #eee;
-  padding: 15px;
+  padding: 12px;
+  border: 1px solid #dddddd;
   text-align: left;
 }
 
@@ -72,42 +67,23 @@ th {
 }
 
 tr:nth-child(even) {
-  background-color: #fafafa;
+  background-color: #f2f2f2;
 }
 
-.checkbox-label {
-  display: inline-block;
-  margin-right: 10px;
+.selected-row {
+  background-color: #eaf5ff; /* Color suave para filas seleccionadas */
 }
 
-.checkbox-label input[type="checkbox"] {
-  margin-right: 5px;
-}
-
-/* Botones */
-button {
-  background-color: var(--color-primario);
-  border: none;
-  color: white;
-  padding: 10px 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  transition-duration: 0.4s;
+/* Mejoras adicionales para interactividad y estética */
+input[type="checkbox"]:hover {
   cursor: pointer;
-  border-radius: 5px;
 }
 
-button:hover {
-  background-color: white;
-  color: var(--color-primario);
-  border: 1px solid var(--color-primario);
+.map-container {
+  position: relative;
 }
 
-#map {
-  height: 300px;
-  border-radius: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+.edit-mode-button, .send-button, .close-map-button {
+  margin-top: 10px;
 }
+

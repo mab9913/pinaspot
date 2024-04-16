@@ -97,6 +97,7 @@ const Dashboard = () => {
   return (
     <div className="dashboard">
       <div className='dashboard-header'>
+<<<<<<< HEAD
         <h1>Datos Personales</h1>
         <button className='logout-button' onClick={handleLogout}>Cerrar sesión</button>
       </div>
@@ -116,6 +117,70 @@ const Dashboard = () => {
         handleCloseMap={handleCloseMap}
         handleUpdateData={handleUpdateData}
       />
+=======
+        <h1>Pin a Spot</h1>
+        <h1>Make data geospatial </h1>
+        <button className='logout-button' onClick={handleLogout}>Cerrar sesión</button>
+      </div>
+
+      <div className="map-container">
+        <MapView 
+          isMapOpen={isMapOpen}
+          onLocationSelect={handleLocationSelect}
+          luminariesData={luminariesData}
+          selectedRows={selectedRows}
+          style={{width: '100%', height: '300px', border: '1px solid #ccc' }}
+        />
+        <button onClick={handleOpenMapClick}>Edit mode</button>
+        <button onClick={handleCloseMap}>End edit mode</button>
+        <button onClick={handleUpdateData}>Send</button>
+        {/* <button onClick={toggleShowAll}>{showAll ? 'Mostrar solo pendientes' : 'Mostrar todos'}</button> */}
+      </div>
+      {/* <button className='guide-button' onClick={toggleGuide}>Guía de Coordenadas</button> */}
+      <table>
+        <thead>
+          <tr>
+            <th>Select</th>
+            <th>id</th>
+            <th>inv_ref</th>
+            <th>Point objetc</th>
+            <th>Modelo</th>
+            <th>layer</th>
+            <th>project</th>
+            <th>level</th>
+            <th>type</th>
+            <th>street</th>
+          
+            <th>lat</th>
+            <th>long</th>
+          </tr>
+        </thead>
+        <tbody>
+          {displayedData.map((luminary, index) => (
+            <tr key={luminary.id} className={selectedRows.includes(index) ? 'selected-row' : ''}>
+              <td>
+                <input
+                  type="checkbox"
+                  onChange={() => handleRowSelect(index)}
+                  checked={selectedRows.includes(index)}
+                />
+              </td>
+              <td>{luminary.id}</td>
+              <td>{luminary['ID PTO DE LUZ']}</td>
+              <td>{luminary['LUMINARIA ACTUAL']}</td>
+              <td>{luminary.lum_model}</td>
+              <td>{luminary['POT FUTURA']}</td>
+              <td>{luminary['C.M. Nuevo']}</td>
+              <td>{luminary.SOPORTE}</td>
+              <td>{luminary.CALLE}</td>
+              <td>{luminary.ALTURA}</td>
+              <td>{luminary.latitud}</td>
+              <td>{luminary.longitud}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+>>>>>>> 495fe28535303067123d666d29334eb5ed833306
     </div>
   );
 };

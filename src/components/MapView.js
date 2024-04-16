@@ -1,21 +1,22 @@
-// MapView.js
 import React, { useState, useEffect } from 'react';
-import { MapContainer, TileLayer, Marker } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-import icon from 'leaflet/dist/images/marker-icon.png';
-import iconRetina from 'leaflet/dist/images/marker-icon-2x.png';
-import iconShadow from 'leaflet/dist/images/marker-shadow.png';
 
-const markerIcon = new L.Icon({
-  iconUrl: icon,
-  iconRetinaUrl: iconRetina,
-  shadowUrl: iconShadow,
-  iconSize: [25, 41],
-  iconAnchor: [12, 41],
-  popupAnchor: [1, -34],
-  shadowSize: [41, 41]
-});
+// Función para crear un icono de marcador personalizado con un símbolo de globo de marcador
+const createCustomMarkerIcon = () => {
+  return L.divIcon({
+    html: `
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="fill: #3388ff; width: 30px; height: 42px;">
+        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/>
+      </svg>
+    `,
+    className: 'custom-div-icon',
+    iconSize: L.point(30, 42),
+    iconAnchor: [15, 42],
+    popupAnchor: [0, -42],
+  });
+};
 
 const MapView = ({ isMapOpen, onLocationSelect, luminariesData }) => {
   const [map, setMap] = useState(null);
@@ -24,7 +25,7 @@ const MapView = ({ isMapOpen, onLocationSelect, luminariesData }) => {
     if (!map) return;
 
     const handleClick = (e) => {
-      if (!isMapOpen) return; // Ignorar clics si la edición está cerrada
+      if (!isMapOpen) return;
 
       const { lat, lng } = e.latlng;
       onLocationSelect(lat, lng);
@@ -46,13 +47,18 @@ const MapView = ({ isMapOpen, onLocationSelect, luminariesData }) => {
         attribution='&copy; OpenStreetMap contributors'
       />
       {luminariesData.map((luminary, index) => (
-        luminary.latitud !== null && luminary.longitud !== null && (
+        luminary.latitud !== null && luminary.longitud !== null ? (
           <Marker 
             key={index} 
             position={[luminary.latitud, luminary.longitud]} 
-            icon={markerIcon} 
-          />
-        )
+            icon={createCustomMarkerIcon()} // Usando el icono personalizado sin etiqueta
+          >
+            <Popup>
+              Latitud: {luminary.latitud}<br />
+              Longitud: {luminary.longitud}
+            </Popup>
+          </Marker>
+        ) : null
       ))}
     </MapContainer>
   );
